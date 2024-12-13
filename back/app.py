@@ -1,6 +1,6 @@
 import flask
 import flask_cors
-
+from controller import controller_bp
 
 app = flask.Flask(__name__)
 flask_cors.CORS(app, resources={
@@ -11,8 +11,6 @@ flask_cors.CORS(app, resources={
         }
 })
 
-@app.route('/')
-def home():
-    return {"message": "Hello World"}, 200
 
+app.register_blueprint(controller_bp, url_prefix="/searches")
 app.run()
