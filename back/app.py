@@ -7,7 +7,7 @@ flask_cors.CORS(app, resources={
     r"/*":
         {
             "origins": ["*"],
-            "methods": ["GET", "POST"]
+            "methods": ["GET", "POST", "PATCH", "DELETE"]
         }
 })
 
