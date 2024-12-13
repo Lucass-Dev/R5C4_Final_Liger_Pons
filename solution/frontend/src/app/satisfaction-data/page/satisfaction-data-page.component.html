@@ -1,0 +1,4 @@
+<h1>Etat de la satisfaction </h1>
+<app-satisfaction-data-global [data]="data" (onAllLikes)="everyoneLikesIt()"
+  (onPropagandaMitigation)="mitigatePropaganda()"></app-satisfaction-data-global>
+<app-satisfaction-list [data]="data" (onSingleModification)="updateSingleSatisfaction($event)"></app-satisfaction-list>

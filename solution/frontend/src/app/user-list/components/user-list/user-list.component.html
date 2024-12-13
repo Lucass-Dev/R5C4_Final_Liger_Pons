@@ -1,0 +1,11 @@
+<h2>Liste des utilisateurs</h2>
+
+<ul>
+  @for (user of users; track $index) {
+  <li>
+    <p>Utilisateur n°{{ user.user_id }}</p>
+    <p>Société n°{{ user.company_id }}</p>
+    <img src="{{ user.imgUrl }}" alt="" />
+  </li>
+  }
+</ul>

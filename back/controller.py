@@ -1,6 +1,6 @@
 import json
 
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 
 controller_bp = Blueprint('controller', __name__)
 
@@ -9,9 +9,9 @@ data = None
 @controller_bp.route('/list', methods=['GET'])
 def list():
     offset = request.args.get('offset', 0)
-    limit = request.args.get('limit', 10)
+    limit = request.args.get('limit', 30)
 
-    return {"data":load_data()}, 200
+    return jsonify(load_data()), 200
 
 
 @controller_bp.route('/create', methods=['POST'])

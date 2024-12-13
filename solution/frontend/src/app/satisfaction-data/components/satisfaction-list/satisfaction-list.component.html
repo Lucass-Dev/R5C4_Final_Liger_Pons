@@ -1,0 +1,21 @@
+<h2>Liste des données sur la satisfaction</h2>
+
+<button (click)="onPrevious()" [disabled]="!canGoPrevious()">Précédent</button>
+<button (click)="onNext()" [disabled]="!canGoNext()">Suivant</button>
+
+
+<ul>
+  @for (entry of shownData; track $index) {
+  <li>
+    <p>Donnée N°{{ offset + $index + 1}}</p>
+    @if (entry.like) {
+    <p style="color:green;">Positif</p>
+    } @else {
+    <p style="color:red">Négatif</p>
+    }
+    <p>{{ entry.motif }} </p>
+    <button (click)="onSingleUpdate(offset + $index, 1)" class="btn-primary">Like</button>
+    <button (click)="onSingleUpdate(offset + $index, 0)" class="btn-danger">Dislike</button>
+  </li>
+  }
+</ul>

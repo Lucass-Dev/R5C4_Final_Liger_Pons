@@ -1,0 +1,44 @@
+<h1>Page de visualisation</h1>
+
+<button (click)="onPrevious()" [disabled]="!canGoPrevious()">Précédent</button>
+<button (click)="onNext()" [disabled]="!canGoNext()">Suivant</button>
+
+
+<div class="container">
+  @for (entry of shownData; track $index) {
+    <div class="card">
+        <p>Entrée N°{{ entry.id }}</p>
+        <p>Algo : {{ entry.algorithm }}</p>
+        <p>Dimensions : [{{ entry.grid_width }}, {{entry.grid_height}}]</p>
+        <p>Start : [{{ entry.start[0] }}, {{entry.start[1]}}]</p>
+        <p>End : [{{ entry.end[0] }}, {{entry.end[1]}}]</p>
+        <p>Path Length : {{ entry.path_length }}</p>
+        <p>Visited Nodes : {{ entry.visited_nodes }}</p>
+        <p>Temps : {{ entry.time_ns }} ns</p>
+        <p>Type de déplacement : {{ entry.move_type }}</p>
+            
+    </div>
+  }
+</div>
+
+
+<style>
+.container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    margin-right: 50px;
+    margin-bottom: 15px;
+    text-align: center;
+    border: solid black 1px;
+    width: 200px;
+}
+
+h1 {
+    margin:auto;
+}
+
+</style>
